@@ -88,7 +88,7 @@ const CountdownTimer: React.FC = () => {
     </div>
   );
   return (
-    <main className="flex flex-col md:gap-20 lg:gap-28 md:flex-row md:items-center min-h-[calc(100vh-3.5rem)] min-w-[375px] px-4 md:px-8">
+    <main className="flex flex-col md:gap-20 lg:gap-28 md:flex-row md:items-center min-h-[calc(100vh-3.5rem)] min-w-[350px] px-4 md:px-8">
       <section className="hidden md:flex md:flex-col justify-center gap-4 md:gap-10 items-center md:w-12 py-4 md:py-0">
         <h2 className="md:-rotate-90 tracking-widest text-sm md:text-base whitespace-nowrap">
           Socials
