@@ -122,7 +122,7 @@ const CountdownTimer: React.FC = () => {
         </div>
       </section>
 
-      <section className="flex md:hidden justify-center gap-4 items-center w-full py-4">
+      <section className="flex md:hidden justify-center gap-4 items-center w-full py-4 -translate-y-[220%]">
         <h2 className="tracking-widest text-sm md:text-base">
           Socials
         </h2>
@@ -134,7 +134,7 @@ const CountdownTimer: React.FC = () => {
         </Link>
       </section>
 
-      <section className="flex md:flex-col justify-center gap-4 items-center md:w-12 py-4 md:py-0">
+      <section className="flex md:flex-col justify-center gap-4 items-center md:w-12 py-4 md:py-0 -translate-y-[230%]">
         <h2 className="md:-rotate-90 tracking-widest w-auto md:w-80 flex justify-center items-center gap-4 whitespace-nowrap">
           <Copyright size={16} /> 2025 Vhija
         </h2>
