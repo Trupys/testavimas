@@ -32,11 +32,7 @@ export default function RootLayout({
           "min-h-full w-full"
         )}
       >
-        <div className="absolute w-full h-full overflow-hidden">
-          <div className="2xl:scale-[.6] 2xl:-translate-y-[29rem] scale-[1.9] translate-y-52 sm:scale-[1.5] sm:translate-y-20 md:scale-[1.2] lg:scale-100 lg:-translate-y-10 xl:scale-75 xl:-translate-y-64">
-            <Vine />
-          </div>
-        </div>
+        <Vine />
 
         <div className="w-full h-full">{children}</div>
       </body>
