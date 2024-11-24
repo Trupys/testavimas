@@ -5,7 +5,7 @@ const Vine = () => (
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
         viewBox="0 0 733 696"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[55%] w-[150vh] scale-50 md:-translate-y-1/2"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2  w-[150vh] scale-75 -translate-y-1/2"
         preserveAspectRatio="xMidYMid meet"
       >
       <defs>
