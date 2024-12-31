@@ -23,7 +23,7 @@ interface TimeUnitProps {
 
 const CountdownTimer: React.FC = () => {
   // Set your target date here (Year, Month (0-11), Day, Hour, Minute)
-  const TARGET_DATE = new Date('2025-01-01T00:00:00Z').getTime();
+  const TARGET_DATE = new Date('2025-01-31T22:00:00Z').getTime();
   
   // Initialize state as null to handle SSR
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
@@ -88,8 +88,8 @@ const CountdownTimer: React.FC = () => {
     </div>
   );
   return (
-    <main className="flex flex-col md:gap-20 lg:gap-28 md:flex-row md:items-center min-h-[calc(100vh-3.5rem)] min-w-[350px] px-2">
-      <section className="hidden md:flex md:flex-col justify-center gap-4 md:gap-10 items-center md:w-12 py-4 md:py-0">
+    <main className="flex flex-col md:gap-20 lg:gap-28 md:flex-row md:items-center h-full min-w-[350px] px-2">
+      <section className="hidden md:flex h-full md:flex-col justify-center gap-4 md:gap-10 items-center md:w-12 py-4 md:py-0">
         <h2 className="md:-rotate-90 tracking-widest text-sm md:text-base whitespace-nowrap">
           Socials
         </h2>
@@ -134,7 +134,7 @@ const CountdownTimer: React.FC = () => {
         </Link>
       </section>
 
-      <section className="flex md:flex-col justify-center gap-4 items-center md:w-12 py-4 md:py-0 -translate-y-[230%]">
+      <section className="flex w-full h-full md:flex-col justify-center gap-4 items-center md:w-12 py-4 md:py-0">
         <h2 className="md:-rotate-90 tracking-widest w-auto md:w-80 flex justify-center items-center gap-4 whitespace-nowrap">
           <Copyright size={16} /> 2025 Vhija
         </h2>

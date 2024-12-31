@@ -29,7 +29,7 @@ export default function RootLayout({
       <body
         className={cn(
           Poppins_init.className,
-          "min-h-full w-full"
+          "h-full w-full"
         )}
       >
         <Vine />
