@@ -22,10 +22,7 @@ interface TimeUnitProps {
 }
 
 const CountdownTimer: React.FC = () => {
-  // Set your target date here (Year, Month (0-11), Day, Hour, Minute)
   const TARGET_DATE = new Date('2025-01-31T22:00:00Z').getTime();
-  
-  // Initialize state as null to handle SSR
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
   const [mounted, setMounted] = useState<boolean>(false);
 
@@ -57,45 +54,40 @@ const CountdownTimer: React.FC = () => {
   useEffect(() => {
     if (!mounted) return;
 
-    // Initial calculation
     const initial = calculateTimeLeft();
     setTimeLeft(initial);
-    // Set up interval
+    
     const timer = setInterval(() => {
       const newTimeLeft = calculateTimeLeft();
       setTimeLeft(newTimeLeft);
-    
     }, 1000);
 
     return () => clearInterval(timer);
   }, [mounted]);
 
-  // Handle SSR
   if (!mounted || !timeLeft) {
-    return null; // Or a loading state
-  }
-
-  if (!mounted || !timeLeft) {
-    return null; // Or a loading state
+    return null;
   }
 
   const TimeUnit: React.FC<TimeUnitProps> = ({ value, label }) => (
     <div className="flex flex-col items-center">
-      <div className="bg-black text-white rounded-lg w-16 h-16 flex items-center justify-center text-2xl font-bold">
+      <div className="bg-black text-white rounded-lg w-12 h-12 md:w-16 md:h-16 flex items-center justify-center text-xl md:text-2xl font-bold">
         {String(value).padStart(2, '0')}
       </div>
-      <span className="text-sm mt-2">{label}</span>
+      <span className="text-xs md:text-sm mt-2">{label}</span>
     </div>
   );
+
   return (
-    <main className="flex flex-col md:gap-20 lg:gap-28 md:flex-row md:items-center h-full min-w-[350px] px-2">
-      <section className="hidden md:flex h-full md:flex-col justify-center gap-4 md:gap-10 items-center md:w-12 py-4 md:py-0">
-        <h2 className="md:-rotate-90 tracking-widest text-sm md:text-base whitespace-nowrap">
+    <main className="flex flex-col min-h-screen w-full">
+      {/* Desktop social sidebar */}
+      <section className="hidden md:flex h-full fixed left-0 flex-col justify-center gap-10 items-center w-12 py-4">
+        <h2 className="-rotate-90 tracking-widest text-base whitespace-nowrap">
           Socials
         </h2>
         <Separator
           orientation="vertical"
-          className="hidden md:block h-20 bg-black"
+          className="h-20 bg-black"
         />
         <Link href="">
           <Instagram className="transition-all hover:scale-125" />
@@ -105,15 +97,14 @@ const CountdownTimer: React.FC = () => {
         </Link>
       </section>
 
-      <section className="flex-1 h-full w-full flex flex-col items-center justify-center">
-        <div className="h-full flex flex-col flex-1 items-center md:items-start justify-center gap-10 w-full max-w-2xl">
-          <div className="flex flex-col gap-3 text-center md:text-left w-full">
-            <h1 className="text-4xl md:text-5xl font-bold text-center">
-              Coming Soon
-            </h1>
-          </div>
+      {/* Main content */}
+      <section className="flex-1 flex flex-col items-center justify-center px-4 md:px-12">
+        <div className="flex flex-col gap-10 w-full max-w-2xl">
+          <h1 className="text-3xl md:text-5xl font-bold text-center">
+            Coming Soon
+          </h1>
 
-          <div className="flex gap-4 w-full justify-center">
+          <div className="flex gap-2 md:gap-4 w-full justify-center">
             <TimeUnit value={timeLeft.days} label="Days" />
             <TimeUnit value={timeLeft.hours} label="Hours" />
             <TimeUnit value={timeLeft.minutes} label="Minutes" />
@@ -122,8 +113,9 @@ const CountdownTimer: React.FC = () => {
         </div>
       </section>
 
-      <section className="flex md:hidden justify-center gap-4 items-center w-full py-4 -translate-y-[220%]">
-        <h2 className="tracking-widest text-sm md:text-base">
+      {/* Mobile social footer */}
+      <section className="md:hidden flex justify-center gap-4 items-center py-4 -translate-y-40">
+        <h2 className="tracking-widest text-sm">
           Socials
         </h2>
         <Link href="">
@@ -134,9 +126,10 @@ const CountdownTimer: React.FC = () => {
         </Link>
       </section>
 
-      <section className="flex w-full h-full md:flex-col justify-center gap-4 items-center md:w-12 py-4 md:py-0">
-        <h2 className="md:-rotate-90 tracking-widest w-auto md:w-80 flex justify-center items-center gap-4 whitespace-nowrap">
-          <Copyright size={16} /> 2025 Vhija
+      {/* Copyright section */}
+      <section className="flex justify-center items-center py-4 -translate-y-40 md:fixed md:-right-7 md:top-1/2 md:-rotate-90 md:-translate-y-1/2">
+        <h2 className="tracking-widest text-sm flex items-center gap-2 md:items-center">
+          <Copyright size={16} className="md:rotate-90" /> 2025 Vhija
         </h2>
       </section>
     </main>
