@@ -22,7 +22,7 @@ interface TimeUnitProps {
 }
 
 const CountdownTimer: React.FC = () => {
-  const TARGET_DATE = new Date('2025-01-31T22:00:00Z').getTime();
+  const TARGET_DATE = new Date('2025-04-01T22:00:00Z').getTime();
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
   const [mounted, setMounted] = useState<boolean>(false);
 
@@ -101,7 +101,7 @@ const CountdownTimer: React.FC = () => {
       <section className="flex-1 flex flex-col items-center justify-center px-4 md:px-12">
         <div className="flex flex-col gap-10 w-full max-w-2xl">
           <h1 className="text-3xl md:text-5xl font-bold text-center">
-            Coming Soon
+            Under development
           </h1>
 
           <div className="flex gap-2 md:gap-4 w-full justify-center">
