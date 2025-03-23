@@ -22,7 +22,7 @@ interface TimeUnitProps {
 }
 
 const CountdownTimer: React.FC = () => {
-  const TARGET_DATE = new Date('2025-04-01T22:00:00Z').getTime();
+  const TARGET_DATE = new Date('2025-05-01T22:00:00Z').getTime();
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
   const [mounted, setMounted] = useState<boolean>(false);
 
